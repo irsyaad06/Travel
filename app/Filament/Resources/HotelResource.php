@@ -49,9 +49,9 @@ class HotelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama')->searchable(),
+                TextColumn::make('nama')->searchable()->label('Nama Hotel'),
                 TextColumn::make('lokasi')->searchable(),
-                TextColumn::make('bintang')->searchable(),
+                TextColumn::make('bintang')->searchable()->label('Rating Hotel')->alignCenter(),
                 TextColumn::make('deskripsi')->searchable()->limit(40),
             ])
             ->filters([

@@ -27,9 +27,9 @@ class KeretaResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('stasiun')->required()->placeholder('Masukkan Nama Perusahaan Penerbangan'),
-                TextInput::make('lokasi')->required()->placeholder('Masukkan Lokasi Perusahaan Penerbangan'),
-                TextInput::make('kontak')->columnSpanFull()->required()->placeholder('Masukkan Kontak Perusahaan Penerbangan')->maxLength(13),
+                TextInput::make('stasiun')->required()->placeholder('Masukkan Nama Stasiun'),
+                TextInput::make('lokasi')->required()->placeholder('Masukkan Lokasi Perusahaan Stasiun'),
+                TextInput::make('kontak')->columnSpanFull()->required()->placeholder('Masukkan Kontak Stasiun')->maxLength(13),
             ]);
     }
 
@@ -37,9 +37,9 @@ class KeretaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('stasiun'),
-                TextColumn::make('lokasi'),
-                TextColumn::make('kontak'),
+                TextColumn::make('stasiun')->searchable(),
+                TextColumn::make('lokasi')->searchable(),
+                TextColumn::make('kontak')->searchable(),
             ])
             ->filters([
                 //

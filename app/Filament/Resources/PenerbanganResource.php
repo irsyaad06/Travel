@@ -38,9 +38,9 @@ class PenerbanganResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('perusahaan'),
-                TextColumn::make('lokasi'),
-                TextColumn::make('kontak'),
+                TextColumn::make('perusahaan')->searchable(),
+                TextColumn::make('lokasi')->searchable(),
+                TextColumn::make('kontak')->searchable(),
             ])
             ->filters([
                 //
