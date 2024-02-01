@@ -2,11 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PenerbanganResource\Pages;
-use App\Filament\Resources\PenerbanganResource\RelationManagers;
-use App\Models\Penerbangan;
+use App\Filament\Resources\KeretaResource\Pages;
+use App\Filament\Resources\KeretaResource\RelationManagers;
+use App\Models\Kereta;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,19 +15,19 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PenerbanganResource extends Resource
+class KeretaResource extends Resource
 {
-    protected static ?string $model = Penerbangan::class;
+    protected static ?string $model = Kereta::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-paper-airplane';
+    protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
 
-    protected static ?string $pluralModelLabel = 'Penerbangan';
+    protected static ?string $pluralModelLabel = 'Kereta';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('perusahaan')->required()->placeholder('Masukkan Nama Perusahaan Penerbangan'),
+                TextInput::make('stasiun')->required()->placeholder('Masukkan Nama Perusahaan Penerbangan'),
                 TextInput::make('lokasi')->required()->placeholder('Masukkan Lokasi Perusahaan Penerbangan'),
                 TextInput::make('kontak')->columnSpanFull()->required()->placeholder('Masukkan Kontak Perusahaan Penerbangan')->maxLength(13),
             ]);
@@ -38,7 +37,7 @@ class PenerbanganResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('perusahaan'),
+                TextColumn::make('stasiun'),
                 TextColumn::make('lokasi'),
                 TextColumn::make('kontak'),
             ])
@@ -67,9 +66,9 @@ class PenerbanganResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPenerbangans::route('/'),
-            'create' => Pages\CreatePenerbangan::route('/create'),
-            'edit' => Pages\EditPenerbangan::route('/{record}/edit'),
+            'index' => Pages\ListKeretas::route('/'),
+            'create' => Pages\CreateKereta::route('/create'),
+            'edit' => Pages\EditKereta::route('/{record}/edit'),
         ];
     }
 }

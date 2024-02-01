@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\PenerbanganResource\Pages;
+namespace App\Filament\Resources\KeretaResource\Pages;
 
-use App\Filament\Resources\PenerbanganResource;
+use App\Filament\Resources\KeretaResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditPenerbangan extends EditRecord
+class EditKereta extends EditRecord
 {
-    protected static string $resource = PenerbanganResource::class;
+    protected static string $resource = KeretaResource::class;
 
     protected function getHeaderActions(): array
     {
