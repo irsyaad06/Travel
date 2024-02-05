@@ -18,6 +18,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\AvatarProviders\BoringAvatarsProvider;
+use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
+use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -55,6 +57,13 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->darkMode(false)
-            ->defaultAvatarProvider(BoringAvatarsProvider::class);
+            ->defaultAvatarProvider(BoringAvatarsProvider::class)
+            ->plugins([
+                FilamentBackgroundsPlugin::make()
+                    ->imageProvider(
+                        MyImages::make()
+                            ->directory('images/swisnl/filament-backgrounds/curated-by-swis')
+                    ),
+            ]);
     }
 }
